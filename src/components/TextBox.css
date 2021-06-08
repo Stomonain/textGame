@@ -1,0 +1,9 @@
+.TextBox {
+  color: red;
+  border-style: solid;
+  border-color: grey;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.25em;
+  padding-bottom: 0.5em;
+}
