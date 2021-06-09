@@ -1,9 +1,17 @@
 .TextBox {
-  color: red;
+  color: inherit;
   border-style: solid;
-  border-color: grey;
+  border-color: inherit;
   padding-left: 0.5em;
   padding-right: 0.5em;
   padding-top: 0.25em;
   padding-bottom: 0.5em;
+  /*animation: type 4s steps(60, end);
+  overflow: hidden;
+  */
 }
+/*
+@keyframes type{
+  from {width: 0;}
+}
+*/

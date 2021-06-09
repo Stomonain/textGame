@@ -1,0 +1,10 @@
+.InnerText {
+  color: inherit;
+  animation: type 4s steps(60, end);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@keyframes type{
+  from {width: 0;}
+}

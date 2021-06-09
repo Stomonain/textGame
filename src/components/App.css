@@ -1,6 +1,26 @@
 .App {
-  background-color: black;
+  background-color: #151515;
+  color: #DDDDDD;
   height: 100%;
   width: 100%;
   position: absolute;
+  border-color: #DDDDDD;
+}
+
+button {
+  background-color: inherit;
+  color: inherit;
+  border-style: solid;
+  border-color: inherit;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}
+
+button:hover {
+  background-color: #202020;
+}
+
+button:active {
+  background-color: #202020;
+  box-shadow: 3px 3px 0 #DDDDDD inset;
 }

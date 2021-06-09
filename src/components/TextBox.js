@@ -1,5 +1,7 @@
 import './TextBox.css';
 
+import InnerText from './InnerText';
+
 function TextBox(props) {
     var styling = {
         width: props.width,
