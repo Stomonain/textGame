@@ -5,10 +5,12 @@
   width: 100%;
   position: absolute;
   border-color: #DDDDDD;
+  font-size: 1.8rem;
 }
 
 button {
   background-color: inherit;
+  font-size: inherit;
   color: inherit;
   border-style: solid;
   border-color: inherit;

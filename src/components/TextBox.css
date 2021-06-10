@@ -1,4 +1,5 @@
 .TextBox {
+  position: absolute;
   color: inherit;
   border-style: solid;
   border-color: inherit;
