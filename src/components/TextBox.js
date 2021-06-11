@@ -1,6 +1,8 @@
 import './TextBox.css';
 
-import React, {useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
+import {useSelector} from 'react-redux';
+import store from '../store';
 
 function TextBox(props) {
     var styling = {
@@ -16,22 +18,30 @@ function TextBox(props) {
     }
     var presentedText = '';
 
+    const [myInterval, setMyInterval] = useState(0);
 
-    //most used to present the text one letter at a time
+
+    //used to present the text one letter at a time
     useEffect(() => {
+        var textBox = document.getElementById(props.id);
         var i = 0;
-        document.getElementById(props.id).innerHTML = '';
-
-        //display text one letter at a time
-        var interval = setInterval(function() {
-            
-            document.getElementById(props.id).innerHTML += props.text[i]
+        textBox.innerHTML = '';
+        console.log(props.typing);
+        if(!props.typing) {
+            clearInterval(myInterval);
+            textBox.innerHTML = props.text;
+        }
+        else {
+            setMyInterval(setInterval(function() {
+            textBox.innerHTML += props.text[i]
             i++
             if (i > props.text.length - 1) {
-                clearInterval(interval);
+                clearInterval(myInterval);
+                store.dispatch({type: 'FINISHED_TYPING'});
             }
-        }, props.textSpeed)
-    })
+        }, props.textSpeed))
+    }
+    }, [props.text, props.typing]);
 
     return (
         <div className="TextBox" style={styling} id={props.id}>
@@ -47,6 +57,8 @@ TextBox.defaultProps = {
     position: 'relative',
     text: "!Missing Text!",
     fontSize: 'inherit',
+    id: 'MissingId',
+    typing: false,
     
     textSpeed: 20
 }

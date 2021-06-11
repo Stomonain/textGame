@@ -11,7 +11,9 @@ const testStrings = [
     'Very nasty place.  Filled with....enemies.....'
 ]
 
-function buttonClick(state, action) {
+
+
+function enterPress(state, action) {
     if(state.typing) {
         state.typing = false;
     }
@@ -23,4 +25,4 @@ function buttonClick(state, action) {
     return state;
 }
 
-export default buttonClick;
+export default enterPress;

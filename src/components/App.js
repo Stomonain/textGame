@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 
 import TextBox from './TextBox';
@@ -7,14 +7,29 @@ import { useSelector } from 'react-redux';
 import store from './../store';
 
 function App() {
-  function handleKeyPress(key) {
-    console.log('Key Pressed: ' + key.charCode);
+
+  //handles the player hitting certain keys
+  function handleKeyDown(key) {
+    switch(key.keyCode) {
+
+      case 13:    //Enter key
+        store.dispatch({type: 'ENTER_PRESSED'})
+        break;
+
+      default:
+        return;
+    }
   }
 
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown)
+  }, []);
+
   const storeText = useSelector((state) => state.text);
+  const typing = useSelector((state) => state.typing);
 
   return (
-    <div className="App" onKeyDown={handleKeyPress}>
+    <div className="App" onKeyDown={handleKeyDown}>
       <br />
       <TextBox text = {storeText}
         width={'60%'}
@@ -22,6 +37,7 @@ function App() {
         top={'20%'}
         left={'18%'}
         id={'mainGameTextBox'}
+        typing={typing}
       />
       <br />
       <br />

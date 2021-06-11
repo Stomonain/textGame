@@ -5,7 +5,7 @@ import reducer from './reducer'
 
 const store = createStore(reducer, {
     text: 'Nothing',
-    stopTypeing: false
+    typing: false
 });
 
 export default store;
