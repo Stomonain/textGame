@@ -1,8 +1,7 @@
 import './TextBox.css';
 
 import React, { useState, useEffect} from 'react';
-import {useSelector} from 'react-redux';
-import store from '../store';
+import store from '../../store';
 
 function TextBox(props) {
     var styling = {
@@ -23,25 +22,27 @@ function TextBox(props) {
 
     //used to present the text one letter at a time
     useEffect(() => {
-        var textBox = document.getElementById(props.id);
         var i = 0;
+        var textBox = document.getElementById(props.id);
         textBox.innerHTML = '';
-        console.log(props.typing);
+
         if(!props.typing) {
             clearInterval(myInterval);
             textBox.innerHTML = props.text;
         }
         else {
             setMyInterval(setInterval(function() {
-            textBox.innerHTML += props.text[i]
-            i++
-            if (i > props.text.length - 1) {
-                clearInterval(myInterval);
-                store.dispatch({type: 'FINISHED_TYPING'});
-            }
-        }, props.textSpeed))
-    }
+                textBox.innerHTML += props.text[i]
+                i++
+                if (i > props.text.length - 1) {
+                    clearInterval(myInterval);
+                    store.dispatch({type: 'FINISHED_TYPING'});
+                }
+            }, props.textSpeed))
+        }
     }, [props.text, props.typing]);
+
+
 
     return (
         <div className="TextBox" style={styling} id={props.id}>

@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import './App.css';
 
-import TextBox from './TextBox';
-import Button from 'react-bootstrap/Button';
+import MainScreen from './Screens/MainScreen';
+import TitleScreen from './Screens/TitleScreen';
 import { useSelector } from 'react-redux';
 import store from './../store';
 
 function App() {
+
+  const screen = useSelector((state) => state.screen);
 
   //handles the player hitting certain keys
   function handleKeyDown(key) {
@@ -25,30 +27,10 @@ function App() {
     document.addEventListener("keydown", handleKeyDown)
   }, []);
 
-  const storeText = useSelector((state) => state.text);
-  const typing = useSelector((state) => state.typing);
-
   return (
     <div className="App" onKeyDown={handleKeyDown}>
-      <br />
-      <TextBox text = {storeText}
-        width={'60%'}
-        height={'15%'}
-        top={'20%'}
-        left={'18%'}
-        id={'mainGameTextBox'}
-        typing={typing}
-      />
-      <br />
-      <br />
-      <Button
-        style={{
-            width: 300,
-            height: 50,
-            marginLeft: '30%'
-          }}
-        onClick={() => store.dispatch({type: 'BUTTON_ACTION',text:'haha xd lol'})}
-        > Change Text </Button>
+      <TitleScreen  screen={screen}/>
+      <MainScreen  screen={screen}/>
     </div>
   );
 }

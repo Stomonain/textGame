@@ -1,4 +1,4 @@
-import buttonClick from './Functions/redux_functions/buttonClick';
+import buttonAction from './Functions/redux_functions/buttonAction';
 import enterPress from './Functions/redux_functions/enterPress';
 
 function reducer(state={text: '!Missing Text!'}, action) {
@@ -12,7 +12,7 @@ function reducer(state={text: '!Missing Text!'}, action) {
             return state;
         case 'BUTTON_ACTION':
             console.log('BUTTON_ACTION action occured');
-            buttonClick(state, action);
+            buttonAction(state, action);
             return state;
         case 'FINISHED_TYPING':
             console.log('FINISHED_TYPING action occured');

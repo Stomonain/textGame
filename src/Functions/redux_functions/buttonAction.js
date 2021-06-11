@@ -1,3 +1,5 @@
+import screenChange from "./screenChange";
+
 const testStrings = [
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
     'Oh....me?  You\'re talking about me?  That\'s just a silly accusation.',
@@ -11,16 +13,30 @@ const testStrings = [
     'Very nasty place.  Filled with....enemies.....'
 ]
 
-function buttonClick(state, action) {
-    if(state.typing) {
-        state.typing = false;
-    }
-    else {
-        state.typing = true;
-        var randomInt = Math.floor(Math.random() * 10);
-        state.text = testStrings[randomInt];
+function buttonAction(state, action) {
+    switch(action.buttonType) {
+
+        //handles decision making buttons
+        case 'choice':
+            if(state.typing) {
+                state.typing = false;
+            }
+            else {
+                state.typing = true;
+                var randomInt = Math.floor(Math.random() * 10);
+                state.text = testStrings[randomInt];
+            }
+            break;
+
+        //handles screen changes
+        case 'screenChange':
+            screenChange(state, action);
+            break;
+
+        default:
+            break;
     }
     return state;
 }
 
-export default buttonClick;
+export default buttonAction;
