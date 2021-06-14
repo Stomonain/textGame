@@ -6,7 +6,7 @@ import reducer from './reducer'
 const store = createStore(reducer, {
     text: 'Nothing',
     typing: false,
-    screen: 'titleScreen'
+    screen: 'TitleScreen'
 });
 
 export default store;

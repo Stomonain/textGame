@@ -56,7 +56,7 @@ TextBox.defaultProps = {
     height: '10%',
     textAlign: 'left',
     position: 'relative',
-    text: "!Missing Text!",
+    text: "!Missing TextBox!",
     fontSize: 'inherit',
     id: 'MissingId',
     typing: false,

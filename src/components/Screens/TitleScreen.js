@@ -2,30 +2,31 @@ import React from 'react';
 import './TitleScreen.css';
 
 import Button from 'react-bootstrap/Button';
+import Text from './../Elements/Text';
 import store from '../../store';
 
 function TitleScreen(props) {
   var styling = {
-    position: 'absolute',
-    visibility: props.screen === 'titleScreen' ? 'visible' : 'hidden'
+    
+    visibility: props.screen === 'TitleScreen' ? 'visible' : 'hidden'
   }
 
   return (
     <div className="TitleScreen" style={styling}>
-      <br />
-      Dungeon Dudes
-      <br />
-      <br />
-      <br />
-      <br />
+      <Text 
+        text='Dungeon Dudes'
+        fontSize='3em'
+        top='10%'
+      />
       <Button
         style={{
             width: 300,
             height: 50,
-            marginLeft: '30%'
+            right: '43%',
+            top: '50%',
           }}
-        onClick={() => store.dispatch({type: 'BUTTON_ACTION', buttonType: 'screenChange', screen:'mainScreen'})}
-        > Change Screen </Button>
+        onClick={() => store.dispatch({type: 'BUTTON_ACTION', buttonType: 'gameStart'})}
+        > Start </Button>
     </div>
   );
 }

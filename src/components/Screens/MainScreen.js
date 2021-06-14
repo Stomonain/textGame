@@ -8,8 +8,7 @@ import store from './../../store';
 
 function MainScreen(props) {
   var styling = {
-    position: 'absolute',
-    visibility: props.screen === 'mainScreen' ? 'visible' : 'hidden'
+    visibility: props.screen === 'MainScreen' ? 'visible' : 'hidden'
 }
 
   const storeText = useSelector((state) => state.text);
@@ -17,33 +16,31 @@ function MainScreen(props) {
   
   return (
     <div className="MainScreen" style={styling}>
-      <br />
       <TextBox text = {storeText}
         width={'60%'}
         height={'15%'}
-        top={'20%'}
+        bottom={'30%'}
         left={'18%'}
         id={'mainGameTextBox'}
         typing={typing}
       />
-      <br />
-      <br />
       <Button
         style={{
             width: 300,
             height: 50,
-            marginLeft: '30%'
+            left: '10%',
+            bottom: '10%'
           }}
         onClick={() => store.dispatch({type: 'BUTTON_ACTION', buttonType: 'choice'})}
         > Change Text </Button>
-      <br />
       <Button
         style={{
             width: 300,
             height: 50,
-            marginLeft: '30%'
+            right: '10%',
+            bottom: '10%'
           }}
-        onClick={() => store.dispatch({type: 'BUTTON_ACTION', buttonType: 'screenChange', screen: 'titleScreen'})}
+        onClick={() => store.dispatch({type: 'BUTTON_ACTION', buttonType: 'screenChange', screen: 'TitleScreen'})}
         > Quit </Button>
     </div>
   );

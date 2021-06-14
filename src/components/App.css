@@ -16,6 +16,7 @@ button {
   border-color: inherit;
   border-right-width: 1px;
   border-bottom-width: 1px;
+  position: absolute;
 }
 
 button:hover {
