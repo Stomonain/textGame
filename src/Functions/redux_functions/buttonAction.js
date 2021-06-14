@@ -1,5 +1,5 @@
 import screenChange from "./screenChange";
-import {gameStart} from './../../Sequences/GameStart';
+import gameStart from './../../Sequences/GameStart';
 
 const testStrings = [
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
@@ -35,7 +35,7 @@ function buttonAction(state, action) {
             break;
 
         case 'gameStart':
-            gameStart.run();
+            gameStart(state);
             screenChange(state, 'MainScreen');
             break;
 

@@ -6,22 +6,25 @@ function reducer(state={text: '!Missing Text!'}, action) {
         case 'ENTER_PRESSED':
             console.log('ENTER_PRESSED action occured');
             enterPress(state, action);
-            return state;
+            break;
         case 'CHOICE_SELECT':
             console.log('CHOICE_SELECT action detected: ', action.option)
-            return state;
+            break;
         case 'BUTTON_ACTION':
             console.log('BUTTON_ACTION action occured');
             buttonAction(state, action);
-            return state;
+            break;
         case 'FINISHED_TYPING':
             console.log('FINISHED_TYPING action occured');
             state.typing = false;
-            return state;
+            break;
+        case 'SEQUENCE_STARTED':
+            console.log('SEQUENCE_STARTED action occured.');
+            break;
         default:
             console.log('Unhandled redux action: ' + action.text);
-            return state;
     }
+    return state;
 }
 
 export default reducer;
