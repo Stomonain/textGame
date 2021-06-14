@@ -1,7 +1,7 @@
 export class Dialogue {
     //this will tell us whether this piece of dialogue will move to the next dialogue piece(dialogue), present the player with a choice(choice),
     //  or initiate a battle(battle)
-    type;
+    type = 'dialogue';
 
     //the character this dialogue is coming from.  narrator is seperate from other dialogue
     character;
@@ -18,8 +18,7 @@ export class Dialogue {
     // the next part of the sequence.  This usually links to another piece of dialogue but can also link to a choice or battle.
     next;
 
-    constructor(type, character, text, textSpeed, next) {
-        this.type = type;
+    constructor(character, text, textSpeed, next) {
         this.character = character;
         this.text = text;
         this.textSpeed = textSpeed;

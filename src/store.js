@@ -7,7 +7,8 @@ const store = createStore(reducer, {
     text: 'Nothing',
     typing: false,
     screen: 'TitleScreen',
-    dialogue: null
+    dialogue: null,
+    isChoosing: false
 });
 
 export default store;

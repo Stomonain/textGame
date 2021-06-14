@@ -13,7 +13,8 @@ function TextBox(props) {
         right: props.right,
         bottom: props.bottom,
         left: props.left,
-        fontSize: props.fontSize
+        fontSize: props.fontSize,
+        visibility: props.visibility
     }
     var presentedText = '';
 

@@ -12,6 +12,7 @@ function MainScreen(props) {
 }
 
   const storeText = useSelector((state) => state.text);
+  const isChoosing = useSelector((state) => state.choosing);
   const typing = useSelector((state) => state.typing);
   
   return (
@@ -19,10 +20,19 @@ function MainScreen(props) {
       <TextBox text = {storeText}
         width={'60%'}
         height={'15%'}
-        bottom={'30%'}
+        bottom={ isChoosing ? '52.5%' : '30%'}
         left={'18%'}
         id={'mainGameTextBox'}
         typing={typing}
+      />
+      <TextBox text = {'This is a placeholder for the choice box'}
+        width={'60%'}
+        height={'20%'}
+        bottom={'30%'}
+        left={'18%'}
+        id={'choiceBox'}
+        typing={typing}
+        visibility={ isChoosing ? 'visible' : 'hidden'}
       />
       <Button
         style={{
