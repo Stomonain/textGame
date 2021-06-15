@@ -3,6 +3,7 @@ import './MainScreen.css';
 
 import TextBox from '../Elements/TextBox';
 import Button from 'react-bootstrap/Button';
+import ChoiceBox from '../Elements/ChoiceBox';
 import { useSelector } from 'react-redux';
 import store from './../../store';
 
@@ -14,6 +15,7 @@ function MainScreen(props) {
   const storeText = useSelector((state) => state.text);
   const isChoosing = useSelector((state) => state.choosing);
   const typing = useSelector((state) => state.typing);
+  const dialogue = useSelector((state) => state.dialogue);
   
   return (
     <div className="MainScreen" style={styling}>
@@ -25,7 +27,7 @@ function MainScreen(props) {
         id={'mainGameTextBox'}
         typing={typing}
       />
-      <TextBox text = {'This is a placeholder for the choice box'}
+      <ChoiceBox
         width={'60%'}
         height={'20%'}
         bottom={'30%'}
@@ -33,6 +35,7 @@ function MainScreen(props) {
         id={'choiceBox'}
         typing={typing}
         visibility={ isChoosing ? 'visible' : 'hidden'}
+        options={dialogue.options}
       />
       <Button
         style={{

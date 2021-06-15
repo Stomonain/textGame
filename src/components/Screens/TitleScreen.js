@@ -25,7 +25,7 @@ function TitleScreen(props) {
             right: '43%',
             top: '50%',
           }}
-        onClick={() => store.dispatch({type: 'BUTTON_ACTION', buttonType: 'gameStart'})}
+        onClick={() => store.dispatch({type: 'GAME_START'})}
         > Start </Button>
     </div>
   );

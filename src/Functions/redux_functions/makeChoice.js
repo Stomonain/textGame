@@ -1,7 +1,9 @@
 
-function makeChoice(state, action) {
-    
+function makeChoice(state, newSequence) {
+    state.dialogue = newSequence();
+    state.text = state.dialogue.text;
+
     return state;
 }
 
-export default enterPress;
+export default makeChoice;

@@ -1,5 +1,7 @@
 import buttonAction from './Functions/redux_functions/buttonAction';
 import enterPress from './Functions/redux_functions/enterPress';
+import makeChoice from './Functions/redux_functions/makeChoice';
+import startGame from './Functions/redux_functions/startGame';
 
 function reducer(state={text: '!Missing Text!'}, action) {
     switch(action.type) {
@@ -8,7 +10,12 @@ function reducer(state={text: '!Missing Text!'}, action) {
             enterPress(state, action);
             break;
         case 'CHOICE_SELECT':
-            console.log('CHOICE_SELECT action detected: ', action.option)
+            console.log('CHOICE_SELECT action detected: ', action.decision)
+            makeChoice(state, action.decision)
+            break;
+        case 'GAME_START':
+            console.log('GAME_START action occured');
+            startGame(state);
             break;
         case 'BUTTON_ACTION':
             console.log('BUTTON_ACTION action occured');
