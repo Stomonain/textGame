@@ -36,11 +36,3 @@ function App() {
 }
 
 export default App;
-
-//STR
-//PER
-//INT
-//CHR
-//WILL
-
-//Funny difficulty messages

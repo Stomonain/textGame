@@ -14,7 +14,8 @@ function TextBox(props) {
         bottom: props.bottom,
         left: props.left,
         fontSize: props.fontSize,
-        visibility: props.visibility
+        visibility: props.visibility,
+        color: props.color,
     }
     var presentedText = '';
 

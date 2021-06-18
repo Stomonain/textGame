@@ -55,10 +55,9 @@ function ChoiceBox(props) {
 
 
     function createOption(option) {
-        console.log('Creating option: ' + option.text)
         return ( 
-            <div>
-                <Button key={option.text}
+            <div key={option.text}>
+                <Button
                     style={buttonStyling}
                     onClick={() => store.dispatch({type: 'CHOICE_SELECT', decision: option.decision})}
                 >
@@ -70,10 +69,8 @@ function ChoiceBox(props) {
 
     function buildOptions(options) {
         if(options) {
-            console.log('Options found')
             return  options.map(createOption);
         }
-        console.log('No options found')
         return null;
     }
 

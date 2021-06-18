@@ -3,6 +3,7 @@ import { Choice } from './Choice';
 import OpeningSequence from './OpeningSequence';
 import firstOption from './firstOption';
 import secondOption from './secondOption';
+import { characterList } from '../Characters/CharacterList';
 
 import Constants from '../Constants';
 
@@ -23,9 +24,9 @@ function thirdOption() {
     )
 
 
-    const m3 = new Choice('Hmmmmm :)', Constants.DEFAULT_TEXT_SPEED, choices);
-    const m2 = new Dialogue('narrator', 'This is the second message of the third option', Constants.DEFAULT_TEXT_SPEED, m3);
-    const m1 = new Dialogue('narrator', 'This is the third option', Constants.DEFAULT_TEXT_SPEED, m2);
+    const m3 = new Choice(characterList[0], 'Hmmmmm :)', 'narrationTextBox', Constants.DEFAULT_TEXT_SPEED, choices);
+    const m2 = new Dialogue(characterList[0], 'This is the second message of the third option', 'narrationTextBox', Constants.DEFAULT_TEXT_SPEED, m3);
+    const m1 = new Dialogue(characterList[0], 'This is the third option', 'narrationTextBox', Constants.DEFAULT_TEXT_SPEED, m2);
 
     return m1;
 }

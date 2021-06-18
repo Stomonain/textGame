@@ -9,7 +9,10 @@ const store = createStore(reducer, {
     typing: false,
     screen: 'TitleScreen',
     dialogue: new Dialogue,
-    isChoosing: false
+    isChoosing: false,
+    narrationTextBoxVisible: false,
+    soloCharacterTextBoxVisible: false,
+    characterNumber: 2
 });
 
 export default store;

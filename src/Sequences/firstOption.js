@@ -1,5 +1,6 @@
 import { Dialogue } from './Dialogue';
 import { Choice } from './Choice';
+import { characterList } from '../Characters/CharacterList';
 
 import secondOption from './secondOption';
 import thirdOption from './thirdOption';
@@ -7,7 +8,6 @@ import Constants from '../Constants';
 import OpeningSequence from './OpeningSequence';
 
 function firstOption() {
-    console.log('running first option');
     var choices = new Array(
         {
             text: 'Opening',
@@ -23,9 +23,9 @@ function firstOption() {
         }
     )
 
-    const m3 = new Choice('Oh yes, oh yes yes yes', Constants.DEFAULT_TEXT_SPEED, choices);
-    const m2 = new Dialogue('narrator', 'This is the second message of the first option', Constants.DEFAULT_TEXT_SPEED, m3);
-    const m1 = new Dialogue('narrator', 'This is the first option', Constants.DEFAULT_TEXT_SPEED, m2);
+    const m3 = new Choice(characterList[3], 'Did you want anything else?', 'dialogTextBox', Constants.DEFAULT_TEXT_SPEED, choices);
+    const m2 = new Dialogue(characterList[3], 'My text should be purple', 'dialogTextBox', Constants.DEFAULT_TEXT_SPEED, m3);
+    const m1 = new Dialogue(characterList[3], 'Hi, my name is Palaya', 'dialogTextBox',  Constants.DEFAULT_TEXT_SPEED, m2);
 
     return m1;
 

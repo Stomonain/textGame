@@ -1,5 +1,6 @@
 import { Dialogue } from './Dialogue';
 import { Choice } from './Choice';
+import { characterList } from '../Characters/CharacterList';
 
 import thirdOption from './thirdOption';
 
@@ -23,9 +24,9 @@ function secondOption() {
         }
     )
 
-    const m3 = new Choice('This might actually be working', Constants.DEFAULT_TEXT_SPEED, choices);
-    const m2 = new Dialogue('narrator', 'This is the second message of the second option', Constants.DEFAULT_TEXT_SPEED, m3);
-    const m1 = new Dialogue('narrator', 'This is the second option', Constants.DEFAULT_TEXT_SPEED, m2);
+    const m3 = new Choice(characterList[0], 'This might actually be working', 'narrationTextBox', Constants.DEFAULT_TEXT_SPEED, choices);
+    const m2 = new Dialogue(characterList[0], 'This is the second message of the second option', 'narrationTextBox', Constants.DEFAULT_TEXT_SPEED, m3);
+    const m1 = new Dialogue(characterList[0], 'This is the second option', 'narrationTextBox', Constants.DEFAULT_TEXT_SPEED, m2);
 
     return m1;
 

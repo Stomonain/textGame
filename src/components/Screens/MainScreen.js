@@ -12,20 +12,32 @@ function MainScreen(props) {
     visibility: props.screen === 'MainScreen' ? 'visible' : 'hidden'
 }
 
-  const storeText = useSelector((state) => state.text);
+  const storeText = useSelector((state) => state.dialogue.text);
   const isChoosing = useSelector((state) => state.choosing);
   const typing = useSelector((state) => state.typing);
   const dialogue = useSelector((state) => state.dialogue);
-  
+  const narrationTextBoxVisible = useSelector((state) => state.narrationTextBoxVisible);
+  const soloCharacterTextBoxVisible = useSelector((state) => state.soloCharacterTextBoxVisible);
+
   return (
     <div className="MainScreen" style={styling}>
       <TextBox text = {storeText}
         width={'60%'}
         height={'15%'}
-        bottom={ isChoosing ? '52.5%' : '30%'}
+        bottom={ isChoosing ? '52.5%' : '30%'}        //move the box upwards if the player is making a choice
         left={'18%'}
-        id={'mainGameTextBox'}
+        id={'narrationTextBox'}
         typing={typing}
+        visibility={narrationTextBoxVisible ? 'visible' : 'hidden'}
+      />
+      <TextBox text = {storeText}
+        width={'60%'}
+        height={'15%'}
+        top={ '6%' }
+        left={'18%'}
+        id={'dialogTextBox'}
+        typing={typing}
+        visibility={soloCharacterTextBoxVisible ? 'visible' : 'hidden'}
       />
       <ChoiceBox
         width={'60%'}
