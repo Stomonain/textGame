@@ -4,13 +4,11 @@ export class Character {
 
     baseCon;
     baseStr;
-    basePer;
     baseInt;
     baseAtr;
     baseWil;
 
     strMod;
-    perMod;
     intMod;
     conMod;
     atrMod;
@@ -26,19 +24,17 @@ export class Character {
     level;
     exp;
 
-    constructor(id, name, str, per, int, con, atr, wil, color, textSpeed, style, level) {
+    constructor(id, name, str, int, con, atr, wil, color, textSpeed, style, level) {
         this.id = id;
         this.name = name;
 
         this.baseStr = str;
-        this.basePer = per;
         this.baseInt = int;
         this.baseCon = con;
         this.baseAtr = atr;
         this.baseWil = wil;
 
         this.strMod = 0;
-        this.perMod = 0;
         this.intMod = 0;
         this.conMod = 0;
         this.atrMod = 0;
@@ -57,10 +53,6 @@ export class Character {
 
     get strenth() {
         return this.baseStr + this.strMod;
-    }
-
-    get perception() {
-        return this.basePer + this.perMod;
     }
 
     get intelligence() {

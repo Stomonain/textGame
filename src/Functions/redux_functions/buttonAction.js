@@ -34,11 +34,6 @@ function buttonAction(state, action) {
             screenChange(state, action.screen);
             break;
 
-        case 'gameStart':
-            gameStart(state);
-            screenChange(state, 'MainScreen');
-            break;
-
         default:
             break;
     }

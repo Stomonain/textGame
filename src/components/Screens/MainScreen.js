@@ -1,5 +1,6 @@
 import React from 'react';
 import './MainScreen.css';
+import { characterList } from '../../Characters/CharacterList';
 
 import TextBox from '../Elements/TextBox';
 import Button from 'react-bootstrap/Button';
@@ -21,6 +22,7 @@ function MainScreen(props) {
 
   return (
     <div className="MainScreen" style={styling}>
+      <p>{characterList[1].strength},{characterList[1].perception},{characterList[1].intelligence},{characterList[1].constitution},{characterList[1].attraction},{characterList[1].will}</p>
       <TextBox text = {storeText}
         width={'60%'}
         height={'15%'}

@@ -1,6 +1,7 @@
 import buttonAction from './Functions/redux_functions/buttonAction';
 import enterPress from './Functions/redux_functions/enterPress';
 import makeChoice from './Functions/redux_functions/makeChoice';
+import screenChange from './Functions/redux_functions/screenChange';
 import startGame from './Functions/redux_functions/startGame';
 
 function reducer(state={text: '!Missing Text!'}, action) {
@@ -12,6 +13,9 @@ function reducer(state={text: '!Missing Text!'}, action) {
         case 'CHOICE_SELECT':
             console.log('CHOICE_SELECT action detected: ', action.decision)
             makeChoice(state, action.decision)
+            break;
+        case 'SCREEN_CHANGE':
+            screenChange(state, 'CharacterCreationScreen');
             break;
         case 'GAME_START':
             console.log('GAME_START action occured');

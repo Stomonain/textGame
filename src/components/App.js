@@ -3,6 +3,7 @@ import './App.css';
 
 import MainScreen from './Screens/MainScreen';
 import TitleScreen from './Screens/TitleScreen';
+import CharacterCreationScreen from './Screens/CharacterCreationScreen';
 import { useSelector } from 'react-redux';
 import store from './../store';
 
@@ -31,6 +32,7 @@ function App() {
     <div className="App" onKeyDown={handleKeyDown}>
       <TitleScreen  screen={screen}/>
       <MainScreen  screen={screen}/>
+      <CharacterCreationScreen screen={screen}/>
     </div>
   );
 }

@@ -7,7 +7,6 @@ import store from '../../store';
 
 function TitleScreen(props) {
   var styling = {
-    
     visibility: props.screen === 'TitleScreen' ? 'visible' : 'hidden'
   }
 
@@ -25,7 +24,7 @@ function TitleScreen(props) {
             right: '43%',
             top: '50%',
           }}
-        onClick={() => store.dispatch({type: 'GAME_START'})}
+        onClick={() => store.dispatch({type: 'SCREEN_CHANGE', screen: 'CharacterCreationScreen'})}
         > Start </Button>
     </div>
   );
