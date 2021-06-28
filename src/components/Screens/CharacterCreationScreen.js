@@ -31,30 +31,23 @@ function CharacterCreationScreen(props) {
     const [attraction, setAttraction] = useState(5);
     const [will, setWill] = useState(5);
 
-    /*
-<div className='Incrementer' style={styling}>
-            <p>{props.label}:</p>
-            <Button
-                style={{
-                    width: 40,
-                    height: 40,
-                    position: 'relative'
-                }}
-                onClick={decrementValue}
-                > -
-            </Button>
-            <text>{value}</text>
-            <Button
-                style={{
-                    width: 40,
-                    height: 40,
-                    position: 'relative'
-                }}
-                onClick={incrementValue}
-                > +
-            </Button>
-        </div>
-    */
+    //These callback functions are passed to the incrementers
+    //  All they do is make sure to update the values here whenever the incrementer changes them.
+    var strCallback = (str) => {
+      setStrength(str);
+    }
+    var intCallback = (int) => {
+      setIntelligence(int);
+    }
+    var conCallback = (con) => {
+      setConstitution(con);
+    }
+    var attCallback = (att) => {
+      setAttraction(att);
+    }
+    var wilCallback = (wil) => {
+      setWill(wil);
+    }
 
     return (
         <div className='CharacterCreationScreen' style={styling}>
@@ -69,9 +62,7 @@ function CharacterCreationScreen(props) {
               top='10%'
               left='8%'
               width='15%'
-              incrementFunction={() => console.log(strength)}
-              decrementFunction={() => setStrength(strength - 1)}
-              value={strength}
+              passFunction={strCallback}
             />
 
             <Incrementer 
@@ -79,6 +70,7 @@ function CharacterCreationScreen(props) {
               top='25%'
               left='8%'
               width='15%'
+              passFunction={intCallback}
             />
 
             <Incrementer 
@@ -86,6 +78,7 @@ function CharacterCreationScreen(props) {
               top='40%'
               left='8%'
               width='15%'
+              passFunction={conCallback}
             />
 
             <Incrementer 
@@ -93,6 +86,7 @@ function CharacterCreationScreen(props) {
               top='55%'
               left='8%'
               width='15%'
+              passFunction={attCallback}
             />
 
             <Incrementer 
@@ -100,6 +94,7 @@ function CharacterCreationScreen(props) {
               top='70%'
               left='8%'
               width='15%'
+              passFunction={wilCallback}
             />
 
             <input  type="text" name="name" style={inputStyling} onChange={e => setName(e.target.value)}/>
@@ -109,7 +104,7 @@ function CharacterCreationScreen(props) {
                   bottom: '10%',
                   right: '10%'
               }}
-              onClick={() => store.dispatch({type: 'GAME_START'})}
+              onClick={() => store.dispatch({type: 'CREATE_FILE', name: name, str: strength, int: intelligence, con: constitution, att: attraction, wil: will})}
             >
                 Create
             </Button>

@@ -12,15 +12,17 @@ function Incrementer(props) {
     }
 
     const [value, setValue] = useState(props.defaultValue);
-/*
-    function incrementValue() {
-        setValue(value + 1);
-    }
+    const [initialRender, setInitialRender] = useState(true);
 
-    function decrementValue() {
-        setValue(value - 1);
-    }
-*/
+    useEffect(() => {
+        if(initialRender) {
+            setInitialRender(false);
+        }
+        else{
+            props.passFunction(value);
+        }
+    }, [value]);
+
     return(
         <div className='Incrementer' style={styling}>
             <p>{props.label}:</p>
@@ -30,17 +32,23 @@ function Incrementer(props) {
                     height: 40,
                     position: 'relative'
                 }}
-                onClick={props.decrementValue}
+                onClick={() => {
+                    setValue(value - 1);
+                    //props.passFunction(value);
+                }}
                 > -
             </Button>
-            <text>{props.value}</text>
+            <text>{value}</text>
             <Button
                 style={{
                     width: 40,
                     height: 40,
                     position: 'relative'
                 }}
-                onClick={props.incrementValue}
+                onClick={() => {
+                    setValue(value + 1);
+                    //props.passFunction(value);
+                }}
                 > +
             </Button>
         </div>

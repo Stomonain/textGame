@@ -3,6 +3,7 @@ import enterPress from './Functions/redux_functions/enterPress';
 import makeChoice from './Functions/redux_functions/makeChoice';
 import screenChange from './Functions/redux_functions/screenChange';
 import startGame from './Functions/redux_functions/startGame';
+import createFile from './Functions/redux_functions/createFile';
 
 function reducer(state={text: '!Missing Text!'}, action) {
     switch(action.type) {
@@ -16,6 +17,9 @@ function reducer(state={text: '!Missing Text!'}, action) {
             break;
         case 'SCREEN_CHANGE':
             screenChange(state, 'CharacterCreationScreen');
+            break;
+        case 'CREATE_FILE':
+            createFile(state, action);
             break;
         case 'GAME_START':
             console.log('GAME_START action occured');
