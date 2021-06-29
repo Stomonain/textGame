@@ -12,7 +12,8 @@ const store = createStore(reducer, {
     isChoosing: false,
     narrationTextBoxVisible: false,
     soloCharacterTextBoxVisible: false,
-    characterNumber: 2
+    characterNumber: 2,
+    file: 0
 });
 
 export default store;

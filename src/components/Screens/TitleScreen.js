@@ -24,7 +24,7 @@ function TitleScreen(props) {
             right: '43%',
             top: '50%',
           }}
-        onClick={() => store.dispatch({type: 'SCREEN_CHANGE', screen: 'CharacterCreationScreen'})}
+        onClick={() => store.dispatch({type: 'SCREEN_CHANGE', screen: 'FileSelectScreen'})}
         > Start </Button>
     </div>
   );

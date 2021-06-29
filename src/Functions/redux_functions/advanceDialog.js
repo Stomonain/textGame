@@ -10,7 +10,7 @@ function advanceDialog(state, action) {
             state.dialogue = state.dialogue.next;
             state.choosing = state.dialogue.type === 'choice' ? true : false;       //determines whether or not a choice is currently being presented to the player.  Used for UI purposes
 
-            if(state.dialogue.character.name == 'narrator') {
+            if(state.dialogue.character.name === 'narrator') {
                 state.narrationTextBoxVisible = true;
                 state.soloCharacterTextBoxVisible = false;
             }

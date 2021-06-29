@@ -16,7 +16,9 @@ function reducer(state={text: '!Missing Text!'}, action) {
             makeChoice(state, action.decision)
             break;
         case 'SCREEN_CHANGE':
-            screenChange(state, 'CharacterCreationScreen');
+            if(action.file)
+                state.file = action.file
+            screenChange(state, action.screen);
             break;
         case 'CREATE_FILE':
             createFile(state, action);
